@@ -13,9 +13,11 @@ class Main{
         Cipher cipher=Cipher.getInstance("DES");
         cipher.init(Cipher.ENCRYPT_MODE,key);
         String en=Base64.getEncoder().encodeToString(cipher.doFinal(msg.getBytes()));
+        System.out.print("Encryption:");
         System.out.println(en);
         cipher.init(Cipher.DECRYPT_MODE,key);
         String de=new String(cipher.doFinal(Base64.getDecoder().decode(en)));
+        System.out.print("Decryption:");
         System.out.println(de);
     }
 }
