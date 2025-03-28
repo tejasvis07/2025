@@ -1,0 +1,21 @@
+import java.security.*;
+import java.util.*;
+class Main{
+    public static void main(String ar[]) throws Exception{
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter msg");
+        String msg=sc.nextLine();
+        
+        KeyPair kp=KeyPairGenerator.getInstance("DSA").generateKeyPair();
+        Signature sig=Signature.getInstance("SHA256withDSA");
+        
+        sig.initSign(kp.getPrivate());
+        sig.update(msg.getBytes());
+        String strmsg=Base64.getEncoder().encodeToString(sig.sign());
+        System.out.println(strmsg);
+        sig.initVerify(kp.getPublic());
+        sig.update(msg.getBytes());
+        System.out.println(sig.verify(Base64.getDecoder().decode(strmsg)));
+    }
+}
+

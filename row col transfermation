@@ -1,0 +1,31 @@
+
+import java.util.*;
+class Main{
+    public static void main(String ar[]){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter txt");
+        String plaintext=sc.nextLine().toUpperCase().replaceAll("[^A-Z]","");
+        System.out.println("enter row");
+        int r=sc.nextInt();
+        System.out.println("enter col");
+        int c=sc.nextInt();
+        System.out.println(encrypt(plaintext,r,c));
+        
+    }
+    public static String encrypt(String text,int r,int c){
+        char[][] matrix=new char[r][c];
+        int index=0;
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                matrix[i][j]=index<text.length() ? text.charAt(index++):'X';
+            }
+        }
+        StringBuilder ct=new StringBuilder();
+        for(int i=0;i<r;i++){
+            for(int j=c-1;j>=0;j--){
+                ct.append(matrix[i][j]);
+            }
+        }
+        return ct.toString();
+    }
+}

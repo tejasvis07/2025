@@ -1,0 +1,22 @@
+import java.util.*;
+class Main{
+    public static void main(String ar[]){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("prime number");
+        int p=sc.nextInt();
+        System.out.println("primitive number");
+        int g=sc.nextInt();
+        System.out.println("a's private key");
+        int a=sc.nextInt();
+        System.out.println("b's private key");
+        int b=sc.nextInt();
+        int A=(int)Math.pow(g,a)%p;
+        int B=(int)Math.pow(g,b)%p;
+        int sharedkey=(int)Math.pow(B,a)%p;
+        
+        System.out.println("A's public key: "+A);
+        System.out.println("B's public key: "+B);
+        System.out.println("shared key: "+sharedkey);
+        
+    }
+}
