@@ -3,16 +3,16 @@ class Main{
     public static void main(String ar[]){
         Scanner sc=new Scanner(System.in);
         System.out.println("prime number");
-        int p=sc.nextInt();
+        int prime=sc.nextInt();
         System.out.println("primitive number");
-        int g=sc.nextInt();
+        int primitive=sc.nextInt();
         System.out.println("a's private key");
-        int a=sc.nextInt();
+        int key1=sc.nextInt();
         System.out.println("b's private key");
-        int b=sc.nextInt();
-        int A=(int)Math.pow(g,a)%p;
-        int B=(int)Math.pow(g,b)%p;
-        int sharedkey=(int)Math.pow(B,a)%p;
+        int key2=sc.nextInt();
+        int A=(int)Math.pow(primitive,key1)%prime;
+        int B=(int)Math.pow(primitive,key2)%prime;
+        int sharedkey=(int)Math.pow(B,key1)%prime;
         
         System.out.println("A's public key: "+A);
         System.out.println("B's public key: "+B);
