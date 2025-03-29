@@ -7,6 +7,7 @@ class Main{
         System.out.println("enter shift");
         int shift=sc.nextInt();
         System.out.println("encrypt "+encrypt(plaintext,shift));
+	    System.out.println("decrypt "+decrypt(plaintext,shift));
     }
     public static String encrypt(String text,int shift){
         StringBuilder result=new StringBuilder();
@@ -22,5 +23,8 @@ class Main{
             }
         }
         return result.toString();
+    }
+    public static String decrypt(String text,int shift){
+        return(encrypt(text,26-shift));
     }
 }
